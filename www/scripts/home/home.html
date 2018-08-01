@@ -1,0 +1,38 @@
+<ion-view view-title="{{vm.cityName}} Guide">
+	<ion-content>
+		<ion-slide-box>
+			<ion-slide ng-repeat="business in vm.businesses">
+				<div class="box blue home-hello" ng-click="vm.navigate(business.guid)">
+					<img ng-src="{{business.pictures[0]}}" style="width: 100%;height:200px ;"/>
+					<div class="item">
+						<h2>{{business.name}}</h2>
+					</div>
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+
+		<div ng-repeat="category in vm.categories" ng-if="$index%2 == 0" class="row colums-two">
+			<div class="card col">
+				
+				<a class="item-image" ng-click="vm.loadBusinessesByCategory(vm.categories[$index])">
+					<img ng-src="{{vm.getCategoryImage($index)}}"/>
+				</a>
+				<a class="item" ng-click="vm.loadBusinessesByCategory(vm.categories[$index ])">
+					<h2 class="center-text">{{vm.categories[$index]}}</h2>
+				</a>
+			</div>
+
+			<div ng-style="{'visibility': !!vm.categories[$index +1] ? 'visible' : 'hidden'}" class="card col">
+				
+				<a class="item-image" ng-click="vm.loadBusinessesByCategory(vm.categories[$index + 1])">
+					<img ng-src="{{vm.getCategoryImage($index +1)}}"/>
+				</a>
+				<a class="item" ng-click="vm.loadBusinessesByCategory(vm.categories[$index +1])">
+					<h2 class="center-text">{{vm.categories[$index + 1]}}</h2>
+				</a>
+			</div>
+		</div>
+
+	</ion-content>
+
+</ion-view>
