@@ -6610,7 +6610,7 @@ button.item.item-button-right {
   z-index: 1;
   width: 100%;
   height: 15px;
-  text-align: center; }
+  text-align: center; display:none;}
   .slider-pager .slider-pager-page {
     display: inline-block;
     margin: 0px 3px;
@@ -9409,3 +9409,122 @@ div.set-rating ul.rating {
 div.set-rating span {
   vertical-align: super;
   font-style: italic; }
+
+  .ion-lg:before {
+    position: relative;
+    font-size: 1.33333em;
+    line-height: 0.75em;
+    vertical-align: -15%;
+  }
+  
+  .ion-2x:before {
+    position: relative;
+    font-size: 2em;
+  }
+  
+  .ion-3x:before {
+    position: relative;
+    font-size: 3em;
+  }
+  
+  .ion-4x:before {
+    position: relative;
+    font-size: 4em;
+  }
+  
+  .ion-5x:before {
+    position: relative;
+    font-size: 5em;
+  }
+  
+  .ion-fw {
+    display: inline-block;
+    width: 1.28571em;
+    text-align: center;
+  }
+  
+  .ion-ul {
+    padding-left: 0;
+    margin-left: 2.14286em;
+    list-style-type: none;
+  }
+  .ion-ul > li {
+    position: relative;
+  }
+  
+  .ion-li {
+    position: absolute;
+    left: -2.14286em;
+    width: 2.14286em;
+    top: 0.14286em;
+    text-align: center;
+  }
+  .ion-li.ion-lg {
+    left: -1.85714em;
+  }
+  
+  .ion-spin {
+    -webkit-animation: ion-spin 2s infinite linear;
+    animation: ion-spin 2s infinite linear;
+  }
+  
+  .ion-pulse {
+    display: inline-block;
+    -webkit-animation: ion-spin 1s infinite steps(8);
+    animation: ion-spin 1s infinite steps(8);
+  }
+  
+  @-webkit-keyframes ion-spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+  @keyframes ion-spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
+  .ion-rotate-90 {
+    display: inline-block;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    transform: rotate(90deg);
+  }
+  
+  .ion-rotate-180 {
+    display: inline-block;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    transform: rotate(180deg);
+  }
+  
+  .ion-rotate-270 {
+    display: inline-block;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    transform: rotate(270deg);
+  }
+  
+  .ion-flip-horizontal {
+    display: inline-block;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+    transform: scale(-1, 1);
+  }
+  
+  .ion-flip-vertical {
+    display: inline-block;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+    transform: scale(1, -1);
+  }
+  
+  .ion-flip-vertical {
+    filter: none;
+  }
+  
