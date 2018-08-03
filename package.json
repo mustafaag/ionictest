@@ -13,6 +13,7 @@
     "@ionic/lab": "^1.0.1",
     "cordova-android": "^7.0.0",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-email-composer": "^0.8.15",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^2.0.2",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -24,7 +25,8 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-email-composer": {}
     },
     "platforms": [
       "android"

@@ -22,7 +22,10 @@
 				name: business.name,
 				category: business.category,
 				isInFavorites: favoriteBusinessesService.isInFavorites(business.guid),
-				rating: business.rating
+				rating: business.rating,
+				openHours: openHoursService.getHourFortheDay(business.openhours),
+				description: business.description,
+				phoneNumber:business.phoneNumber
 			},
 			showNews: showNews,
 			showServices: showServices,
@@ -34,7 +37,9 @@
 			toggleFavorites: toggleFavorites,
 			showContactUs: showContactUs,
 			showReviews: showReviews,
-			showFullScreenSlider: showFullScreenSlider
+			showFullScreenSlider: showFullScreenSlider,
+			sendEmail:sendEmail,
+			openFacebookPage:openFacebookPage
 		});
 
 		(function activate() {
@@ -58,6 +63,17 @@
 			}).then(function(modal) {
 				scope.modal = modal;
 				scope.modal.show();
+			});
+		}
+		function sendEmail() {
+			$cordovaEmailComposer.isAvailable().then(function() {
+				var email = {
+					to: business.email,
+					subject: 'Cordova Icons',
+					body: 'How are you? Nice greetings from Leipzig'
+				};
+
+				$cordovaEmailComposer.open(email);
 			});
 		}
 
@@ -124,6 +140,9 @@
 
 		function getDirections() {
 			externalAppsService.openMapsApp(business.officeLocation);
+		}
+		function openFacebookPage() {
+			externalAppsService.openExternalUrl(business.facebookPage);
 		}
 	}
 })();
