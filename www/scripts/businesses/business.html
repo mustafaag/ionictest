@@ -18,16 +18,23 @@
 				</span>
 				<span ng-if="vm.business.isInFavorites">
 					<i class="icon ion-ios-star  balanced "></i>
-				</span>
+				</span>				
 			</a>		
 		</div>
 		<div class="list">
 			<span class="item item-icon-left" >
-				<span ng-click="vm.getDirections()">
+				<span ng-click="vm.getDirections()" class="fourIcons">
 						<i class="ion-ios-navigate-outline ion-3x balanced"></i>
 				</span>
-				<span ng-click="vm.showWordpress()">
+				<span ng-click="vm.openCurrentLocation()" class="fourIcons">
+					<i class="ion-ios-location ion-3x balanced"></i>
+				</span>
+				<span ng-click="vm.showWordpress()" class="fourIcons">
 						<i class="ion-ios-world-outline ion-3x balanced"></i>
+				</span>
+
+				<span ng-click="vm.shareThis()" class="fourIcons">
+					<i class="ion-ios-upload ion-3x balanced"></i>
 				</span>
 				
 			</span>
@@ -62,13 +69,13 @@
 
 		</div>
 
-		 <div class="list card">
+		 <!-- <div class="list card">
 			<a class="item item-icon-left" ng-click="vm.showContactUs()">
 				<i class="icon ion-ios-time-outline"></i>
 				It's {{::vm.currentDateTime}} and we are
 				<span ng-if="vm.business.isBusinessOpen" class="balanced">Open</span>
 				<span ng-if="!vm.business.isBusinessOpen" class="assertive">Closed</span>
-			</a>
+			</a> -->
 
 		
 <!--

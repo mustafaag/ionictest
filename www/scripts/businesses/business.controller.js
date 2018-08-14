@@ -1,17 +1,17 @@
 (function() {
 	'use strict';
-
+	
 	angular
 		.module('listing.businesses')
 		.controller('BusinessDetailsController', BusinessDetailsController);
-
+	
 	BusinessDetailsController.$inject = [
 		'business', 'externalAppsService', 'openHoursService', 'distanceService',
-		'state', 'favoriteBusinessesService', 'ionicToast', '$ionicModal', '$rootScope'];
+		'state', 'favoriteBusinessesService', 'ionicToast', '$ionicModal','$cordovaEmailComposer' ,'$rootScope','$cordovaSocialSharing'];
 
 	/* @ngInject */
 	function BusinessDetailsController(business, externalAppsService, openHoursService,
-		distanceService, state, favoriteBusinessesService, ionicToast, $ionicModal, $rootScope) {
+		distanceService, state, favoriteBusinessesService, ionicToast, $ionicModal,$cordovaEmailComposer ,$rootScope,$cordovaSocialSharing,) {
 
 		var vm = angular.extend(this, {
 			currentDateTime: (new Date()).format('dddd HH:MM'),
@@ -39,7 +39,9 @@
 			showReviews: showReviews,
 			showFullScreenSlider: showFullScreenSlider,
 			sendEmail:sendEmail,
-			openFacebookPage:openFacebookPage
+			openFacebookPage:openFacebookPage,
+			shareThis:shareThis,
+			openCurrentLocation:openCurrentLocation
 		});
 
 		(function activate() {
@@ -47,7 +49,12 @@
 		})();
 
 		// *************************************************************
-
+		
+		function openCurrentLocation(){
+			state.go('app.map', {
+				businessId: business.guid
+			});
+		}
 		function showFullScreenSlider() {
 			var scope = $rootScope.$new();
 			scope.vm = {
@@ -66,17 +73,25 @@
 			});
 		}
 		function sendEmail() {
+			console.log($cordovaEmailComposer);
 			$cordovaEmailComposer.isAvailable().then(function() {
 				var email = {
 					to: business.email,
-					subject: 'Cordova Icons',
-					body: 'How are you? Nice greetings from Leipzig'
+					subject: 'Info Request',
+					body: ''
 				};
 
 				$cordovaEmailComposer.open(email);
 			});
 		}
-
+		function shareThis(){
+			console.log($cordovaSocialSharing)
+			$cordovaSocialSharing.share("test","hello","business.html","test.com").then(()=>{
+				console.log("succes");
+			}).catch(() => {
+				console.log("err");
+			  });
+		}
 		function toggleFavorites() {
 			vm.business.isInFavorites = !vm.business.isInFavorites;
 			if (vm.business.isInFavorites) {
@@ -139,7 +154,7 @@
 		}
 
 		function getDirections() {
-			externalAppsService.openMapsApp(business.officeLocation);
+			externalAppsService.openMapsApp(business.officeLocation,business.name);
 		}
 		function openFacebookPage() {
 			externalAppsService.openExternalUrl(business.facebookPage);

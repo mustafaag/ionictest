@@ -9527,4 +9527,6 @@ div.set-rating span {
   .ion-flip-vertical {
     filter: none;
   }
-  
+  span.fourIcons {
+    padding-left: 20px;
+}

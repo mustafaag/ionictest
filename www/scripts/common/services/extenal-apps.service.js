@@ -24,7 +24,7 @@
 			openExternalUrl(url);
 		}
 
-		function openMapsApp(coords) {
+		function openMapsApp(coords,name) {
 	
 			if (angular.isObject(coords)) {
 				coords = coords.latitude + ',' + coords.longitude;
@@ -32,7 +32,7 @@
 
 			var q;
 			if (ionic.Platform.isAndroid()) {
-				q = 'geo:' + coords;
+				q = 'geo:0.0?q=' + coords + '('+name+')';
 			} else {
 				q = 'maps://maps.apple.com/?q=' + coords;
 			}

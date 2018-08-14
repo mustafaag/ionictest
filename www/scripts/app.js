@@ -44,6 +44,18 @@ angular.module('listing', [
 			StatusBar.styleDefault();
 		}
 	});
+	
+	$ionicPlatform.on("deviceready", function() {
+        branchInit();
+	  });
+	  
+	function branchInit() {
+	// Branch initialization
+	Branch.initSession().then(function(data) {
+		// read deep link data on click
+		alert("Deep Link Data: " + JSON.stringify(data));
+	});
+	}
 })
 
 .config(function($urlRouterProvider) {

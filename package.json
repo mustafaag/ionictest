@@ -4,20 +4,25 @@
   "description": "An Ionic project",
   "devDependencies": {
     "@ionic/v1-toolkit": "1.0.0",
-    "gulp": "^3.5.6",
+    "gulp": "^4.0.0",
     "gulp-clean-css": "^3.7.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^3.1.0"
   },
   "dependencies": {
+    "@ionic-native/geolocation": "^4.11.0",
+    "@ionic-native/social-sharing": "^4.11.0",
     "@ionic/lab": "^1.0.1",
-    "cordova-android": "^7.0.0",
+    "cordova-android": "^7.1.1",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-email-composer": "^0.8.15",
+    "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^2.0.2",
     "cordova-plugin-splashscreen": "^5.0.2",
-    "cordova-plugin-whitelist": "^1.3.3"
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-plugin-x-socialsharing": "^5.4.1",
+    "es6-promise-plugin": "^4.2.2"
   },
   "cordova": {
     "plugins": {
@@ -26,7 +31,11 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-email-composer": {}
+      "cordova-plugin-email-composer": {},
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-geolocation": {
+        "GEOLOCATION_USAGE_DESCRIPTION": "Find places around you"
+      }
     },
     "platforms": [
       "android"
