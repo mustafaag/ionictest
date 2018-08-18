@@ -20,7 +20,9 @@ angular.module('gMaps', [])
 			mapTypeId: '@', 		// Type of tile to show on the map (roadmap, satellite, hybrid, terrain).
 			panControl: '@', 		// Whether to show a pan control on the map.
 			zoomControl: '@', 	// Whether to show a zoom control on the map.
-			scaleControl: '@' 	// Whether to show scale control on the map.
+			scaleControl: '@', 	// Whether to show scale control on the map.
+			locationMarker:'=',
+			markerImgUrl : '='
 		},
 		link: function(scope, element, attrs) {
 			var toResize, toCenter;
@@ -58,6 +60,7 @@ angular.module('gMaps', [])
 			function createMap() {
 				console.log('map: create map start');
 				var c = scope.center;
+				console.log(scope);
 				var mapOptions = {
 					zoom: scope.zoom || 10,
 					center: new google.maps.LatLng(c.lat, c.lon),
@@ -118,18 +121,25 @@ angular.module('gMaps', [])
 				if (map && scope.markers) {
 					// create new markers
 					// console.log('map: make markers ');
+					
 					currentMarkers = [];
+					
+			
 					var markers = scope.markers;
+					console.log(scope.markerImgUrl);
 					if (angular.isString(markers)) {
 						markers = scope.$eval(scope.markers);
+						
 					}
+					
 					for (var i = 0; i < markers.length; i++) {
 						var m = markers[i];
 						var loc = new google.maps.LatLng(m.lat, m.lon);
 						var mm = new google.maps.Marker({
 							position: loc,
 							map: map,
-							title: m.name
+							title: m.name,
+							icon:m.icon
 						});
 						//console.log('map: make marker for ' + m.name);
 						google.maps.event.addListener(mm, 'click', markerCb(mm, m, loc));
@@ -137,7 +147,7 @@ angular.module('gMaps', [])
 					}
 				}
 			}
-
+			
 			// convert current location to Google maps location
 			function getLocation(loc) {
 				if (loc == null) {

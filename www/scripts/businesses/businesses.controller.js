@@ -18,16 +18,17 @@
 			navigate: navigate,
 			filterByCategory: filterByCategory,
 			showFilter: showFilter,
-			featured: false
+			featured: false,
+			
 		});
 
 		(function activate() {
 			loadBusinesses();
 			loadCategories();
+	
 		})();
 
 		// ********************************************************************
-
 		function applyFilters() {
 			filterModal.hide();
 

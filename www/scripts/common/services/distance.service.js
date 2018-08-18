@@ -11,7 +11,8 @@
 	function distanceService($cordovaGeolocation, convert, geolib, _) {
 		var service = {
 			getDistanceToOrigin: getDistanceToOrigin,
-			getDistancesToOrigins: getDistancesToOrigins
+			getDistancesToOrigins: getDistancesToOrigins,
+			getCurrentPosition:getCurrentPosition
 		};
 		return service;
 		

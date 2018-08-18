@@ -21,14 +21,17 @@
 		// ******************************************************************
 
 		function loadPoints() {
+			console.log(vm);
 			var markers = [];
 			_.each(pins, function(pin) {
 				markers.push({
 					name: pin.title + getBusinessLink(pin.businessId),
 					lat: pin.lat,
-					lon: pin.lon
+					lon: pin.lon,
+					icon: 'images/markerred.png'
 				});
 			});
+		
 			return markers;
 		}
 

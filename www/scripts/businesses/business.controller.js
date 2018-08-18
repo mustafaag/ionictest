@@ -41,7 +41,9 @@
 			sendEmail:sendEmail,
 			openFacebookPage:openFacebookPage,
 			shareThis:shareThis,
-			openCurrentLocation:openCurrentLocation
+			openCurrentLocation:openCurrentLocation,
+			
+			
 		});
 
 		(function activate() {
@@ -51,9 +53,7 @@
 		// *************************************************************
 		
 		function openCurrentLocation(){
-			state.go('app.map', {
-				businessId: business.guid
-			});
+			state.go('app.location');
 		}
 		function showFullScreenSlider() {
 			var scope = $rootScope.$new();

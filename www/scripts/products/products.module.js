@@ -22,5 +22,5 @@
 				url: '/businesses/:businessId/products/:productId'
 			});
 		});
-
+		
 })();

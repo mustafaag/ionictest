@@ -1,0 +1,13 @@
+<ioon-view view-title="{{vm.zoom}}">
+    <ion-content id="map-view" data-tap-disabled="true">
+        <div>
+            {{vm.zoom}}
+        </div>
+		<gmaps
+			center="vm.origin"
+			zoom="vm.zoom"
+			markers="vm.markers"
+			> 
+		</gmaps>
+	</ion-content>
+</ioon-view>

@@ -26,7 +26,9 @@ angular.module('listing', [
 	'listing.wordpress',
 	'listing.drupal',
 	'listing.reviews',
-	'listing.home'
+	'listing.home',
+	'listing.location'
+	
 ])
 
 .value('_', window._)

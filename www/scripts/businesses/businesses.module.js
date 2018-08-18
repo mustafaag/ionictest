@@ -11,7 +11,6 @@
 		])
 		.config(function(stateDefinerProvider) {
 			var stateDefiner = stateDefinerProvider.$get();
-
 			stateDefiner.define({
 				templateUrl: 'scripts/businesses/business.html',
 				controller: 'BusinessDetailsController',
